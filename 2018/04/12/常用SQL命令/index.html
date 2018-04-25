@@ -1,139 +1,271 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>常用SQL命令 | 穷不忘道,老而能学</title>
 
-  
-  <meta name="author" content="Black_Jack">
-  
 
-  
-  <meta name="description" content="常用SQL命令数据库维护类
-日志压缩
-123ALTER DATABASE [DataBaseName] SET RECOVERY SIMPLE  ALTER DATABASE [DataBaseName] SET RECOVERY FULL  DBCC SHRINKDATABASE([DataBas">
-  
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head prefix="og: http://ogp.me/ns#">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <title>常用SQL命令 | 穷不忘道,老而能学</title>
 
-  
-  
-  <meta name="keywords" content="SQL">
-  
+    <!-- Open Graph -->
+    <meta name="description" content="&amp;#x5E38;&amp;#x7528;SQL&amp;#x547D;&amp;#x4EE4;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x7EF4;&amp;#x62A4;&amp;#x7C7B; &amp;#x65E5;&amp;#x5FD7;&amp;#x538B;&amp;#x7F29; 123ALTER DATABASE [DataBaseName] SET RECOVERY SIMPLE  ALTER DATABASE [DataBaseName]">
+<meta name="keywords" content="SQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用SQL命令">
+<meta property="og:url" content="https://foryl.github.io/blog/2018/04/12/常用SQL命令/index.html">
+<meta property="og:site_name" content="穷不忘道,老而能学">
+<meta property="og:description" content="&amp;#x5E38;&amp;#x7528;SQL&amp;#x547D;&amp;#x4EE4;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x7EF4;&amp;#x62A4;&amp;#x7C7B; &amp;#x65E5;&amp;#x5FD7;&amp;#x538B;&amp;#x7F29; 123ALTER DATABASE [DataBaseName] SET RECOVERY SIMPLE  ALTER DATABASE [DataBaseName]">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-11T18:39:51.989Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用SQL命令">
+<meta name="twitter:description" content="&amp;#x5E38;&amp;#x7528;SQL&amp;#x547D;&amp;#x4EE4;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x7EF4;&amp;#x62A4;&amp;#x7C7B; &amp;#x65E5;&amp;#x5FD7;&amp;#x538B;&amp;#x7F29; 123ALTER DATABASE [DataBaseName] SET RECOVERY SIMPLE  ALTER DATABASE [DataBaseName]">
 
-  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:",
+  "image": "",
+  "name": "Black_Jack",
+  "url": "https://foryl.github.io/blog"
+}
+</script>
+    <script>
+    var algoliaEnabled = false;
+    
+</script>
 
-  <meta property="og:title" content="常用SQL命令"/>
+    
 
-  <meta property="og:site_name" content="穷不忘道,老而能学"/>
+    
+    
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
+    
+    
+        <!-- stylesheets list from config.yml -->
+        
+        <link rel="stylesheet" href="/blog/css/aloha.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        
+    
 
-  
-  <meta property="og:image" content="/blog/favicon.ico"/>
-  
-
-  <link href="/blog/favicon.ico" rel="icon">
-  <link rel="alternate" href="/blog/atom.xml" title="穷不忘道,老而能学" type="application/atom+xml">
-  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
 </head>
+<body id="body" style="margin-bottom: 0;" class="pushable">
+
+    <div class="ui top fixed menu">
+        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
+    </div>
+
+    <div id="menu-sidebar" class="ui left vertical sidebar menu">
+
+    <div id="sidebar-top">
+        <div class="content">
+            <h3>穷不忘道,老而能学</h3>
+        </div>
+    </div>
+    <div class="ui container sidebar-card">
+    <div class="ui people shape content">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img class="ui medium bordered image" src="/blog/images/me.png">
+                </div>
+                <div class="content">
+                    <a class="header">Black_Jack</a>
+                    
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-<body>
-<div class="blog">
-  <div class="content">
+</div>
 
-    <header>
-  <div class="site-branding">
-    <h1 class="site-title">
-      <a href="/blog/">穷不忘道,老而能学</a>
-    </h1>
-    <p class="site-description"></p>
-  </div>
-  <nav class="site-navigation">
-    <ul>
-      
-        <li><a href="/blog/">主页</a></li>
-      
-        <li><a href="/blog/archives">归档</a></li>
-      
-    </ul>
-  </nav>
-</header>
-
-    <main class="site-main posts-loop">
-    <article>
-
-  
     
-    <h3 class="article-title"><span>常用SQL命令</span></h3>
     
-  
 
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/blog/2018/04/12/常用SQL命令/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-04-11T18:36:03.000Z">
-          2018-04-12
-        </time>
-      </a>
-    </span>
-  </div>
+    
+
+    
+    <a href="/index.html" class="item" >
+        <i class="home icon"></i>
+        首页
+    </a>
+
+    
+
+    
+</div>
+
+    <div class="pusher body-content">
+        <div id="content" class="ui main container">
+            <!--<div class="ui one column grid">-->
+                <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                        <div id="post-常用SQL命令" class="ui main container article-type-post">
+
+    
+
+    <div class="ui divided grid">
+
+        <div class="two column row" id="article-content">
+
+            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
+                
+
+<h1 class="ui header">
+    
+    常用SQL命令
+</h1>
 
 
-  
 
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="常用SQL命令"><a href="#常用SQL命令" class="headerlink" title="常用SQL命令"></a>常用SQL命令</h2><h4 id="数据库维护类"><a href="#数据库维护类" class="headerlink" title="数据库维护类"></a>数据库维护类</h4><ul>
-<li><p>日志压缩</p>
+                <div class="article-inner">
+
+                    <div class="article-entry" itemprop="articleBody">
+                        
+                        <h2 id="&#x5E38;&#x7528;SQL&#x547D;&#x4EE4;"><a href="#&#x5E38;&#x7528;SQL&#x547D;&#x4EE4;" class="headerlink" title="&#x5E38;&#x7528;SQL&#x547D;&#x4EE4;"></a>&#x5E38;&#x7528;SQL&#x547D;&#x4EE4;</h2><h4 id="&#x6570;&#x636E;&#x5E93;&#x7EF4;&#x62A4;&#x7C7B;"><a href="#&#x6570;&#x636E;&#x5E93;&#x7EF4;&#x62A4;&#x7C7B;" class="headerlink" title="&#x6570;&#x636E;&#x5E93;&#x7EF4;&#x62A4;&#x7C7B;"></a>&#x6570;&#x636E;&#x5E93;&#x7EF4;&#x62A4;&#x7C7B;</h4><ul class="ui list">
+<li><p>&#x65E5;&#x5FD7;&#x538B;&#x7F29;</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">DATABASE</span> [DataBaseName] <span class="keyword">SET</span> <span class="keyword">RECOVERY</span> SIMPLE  </span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">DATABASE</span> [DataBaseName] <span class="keyword">SET</span> <span class="keyword">RECOVERY</span> <span class="keyword">FULL</span>  </span><br><span class="line">DBCC SHRINKDATABASE([DataBaseName], <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>查询表结构</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--快速查看表结构（比较全面的）</span></span><br><span class="line"><span class="keyword">SELECT</span>  <span class="keyword">CASE</span> <span class="keyword">WHEN</span> col.colorder = <span class="number">1</span> <span class="keyword">THEN</span> obj.name</span><br><span class="line">                  <span class="keyword">ELSE</span> <span class="string">''</span></span><br><span class="line">             <span class="keyword">END</span> <span class="keyword">AS</span> 表名,</span><br><span class="line">        col.colorder <span class="keyword">AS</span> 序号 ,</span><br><span class="line">        col.name <span class="keyword">AS</span> 列名 ,</span><br><span class="line">        <span class="keyword">ISNULL</span>(ep.[<span class="keyword">value</span>], <span class="string">''</span>) <span class="keyword">AS</span> 列说明 ,</span><br><span class="line">        t.name <span class="keyword">AS</span> 数据类型 ,</span><br><span class="line">        col.length <span class="keyword">AS</span> 长度 ,</span><br><span class="line">        <span class="keyword">ISNULL</span>(COLUMNPROPERTY(col.id, col.name, <span class="string">'Scale'</span>), <span class="number">0</span>) <span class="keyword">AS</span> 小数位数 ,</span><br><span class="line">        <span class="keyword">CASE</span> <span class="keyword">WHEN</span> COLUMNPROPERTY(col.id, col.name, <span class="string">'IsIdentity'</span>) = <span class="number">1</span> <span class="keyword">THEN</span> <span class="string">'√'</span></span><br><span class="line">             <span class="keyword">ELSE</span> <span class="string">''</span></span><br><span class="line">        <span class="keyword">END</span> <span class="keyword">AS</span> 标识 ,</span><br><span class="line">        <span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">EXISTS</span> ( <span class="keyword">SELECT</span>   <span class="number">1</span></span><br><span class="line">                           <span class="keyword">FROM</span>     dbo.sysindexes si</span><br><span class="line">                                    <span class="keyword">INNER</span> <span class="keyword">JOIN</span> dbo.sysindexkeys sik <span class="keyword">ON</span> si.id = sik.id</span><br><span class="line">                                                              <span class="keyword">AND</span> si.indid = sik.indid</span><br><span class="line">                                    <span class="keyword">INNER</span> <span class="keyword">JOIN</span> dbo.syscolumns sc <span class="keyword">ON</span> sc.id = sik.id</span><br><span class="line">                                                              <span class="keyword">AND</span> sc.colid = sik.colid</span><br><span class="line">                                    <span class="keyword">INNER</span> <span class="keyword">JOIN</span> dbo.sysobjects so <span class="keyword">ON</span> so.name = si.name</span><br><span class="line">                                                              <span class="keyword">AND</span> so.xtype = <span class="string">'PK'</span></span><br><span class="line">                           <span class="keyword">WHERE</span>    sc.id = col.id</span><br><span class="line">                                    <span class="keyword">AND</span> sc.colid = col.colid ) <span class="keyword">THEN</span> <span class="string">'√'</span></span><br><span class="line">             <span class="keyword">ELSE</span> <span class="string">''</span></span><br><span class="line">        <span class="keyword">END</span> <span class="keyword">AS</span> 主键 ,</span><br><span class="line">        <span class="keyword">CASE</span> <span class="keyword">WHEN</span> col.isnullable = <span class="number">1</span> <span class="keyword">THEN</span> <span class="string">'√'</span></span><br><span class="line">             <span class="keyword">ELSE</span> <span class="string">''</span></span><br><span class="line">        <span class="keyword">END</span> <span class="keyword">AS</span> 允许空 ,</span><br><span class="line">        <span class="keyword">ISNULL</span>(comm.text, <span class="string">''</span>) <span class="keyword">AS</span> 默认值</span><br><span class="line"><span class="keyword">FROM</span>    dbo.syscolumns <span class="keyword">col</span></span><br><span class="line">        <span class="keyword">LEFT</span>  <span class="keyword">JOIN</span> dbo.systypes t <span class="keyword">ON</span> col.xtype = t.xusertype</span><br><span class="line">        <span class="keyword">inner</span> <span class="keyword">JOIN</span> dbo.sysobjects obj <span class="keyword">ON</span> col.id = obj.id</span><br><span class="line">                                         <span class="keyword">AND</span> obj.xtype = <span class="string">'U'</span></span><br><span class="line">                                         <span class="keyword">AND</span> obj.status &gt;= <span class="number">0</span></span><br><span class="line">        <span class="keyword">LEFT</span>  <span class="keyword">JOIN</span> dbo.syscomments comm <span class="keyword">ON</span> col.cdefault = comm.id</span><br><span class="line">        <span class="keyword">LEFT</span>  <span class="keyword">JOIN</span> sys.extended_properties ep <span class="keyword">ON</span> col.id = ep.major_id</span><br><span class="line">                                                      <span class="keyword">AND</span> col.colid = ep.minor_id</span><br><span class="line">                                                      <span class="keyword">AND</span> ep.name = <span class="string">'MS_Description'</span></span><br><span class="line">        <span class="keyword">LEFT</span>  <span class="keyword">JOIN</span> sys.extended_properties epTwo <span class="keyword">ON</span> obj.id = epTwo.major_id</span><br><span class="line">                                                         <span class="keyword">AND</span> epTwo.minor_id = <span class="number">0</span></span><br><span class="line">                                                         <span class="keyword">AND</span> epTwo.name = <span class="string">'MS_Description'</span></span><br><span class="line"><span class="keyword">WHERE</span>   obj.name = <span class="string">'TableName'</span><span class="comment">--表名</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> col.colorder ;</span><br></pre></td></tr></table></figure>
+<li><p>&#x67E5;&#x8BE2;&#x8868;&#x7ED3;&#x6784;</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--&#x5FEB;&#x901F;&#x67E5;&#x770B;&#x8868;&#x7ED3;&#x6784;&#xFF08;&#x6BD4;&#x8F83;&#x5168;&#x9762;&#x7684;&#xFF09;</span></span><br><span class="line"><span class="keyword">SELECT</span>  <span class="keyword">CASE</span> <span class="keyword">WHEN</span> col.colorder = <span class="number">1</span> <span class="keyword">THEN</span> obj.name</span><br><span class="line">                  <span class="keyword">ELSE</span> <span class="string">&apos;&apos;</span></span><br><span class="line">             <span class="keyword">END</span> <span class="keyword">AS</span> &#x8868;&#x540D;,</span><br><span class="line">        col.colorder <span class="keyword">AS</span> &#x5E8F;&#x53F7; ,</span><br><span class="line">        col.name <span class="keyword">AS</span> &#x5217;&#x540D; ,</span><br><span class="line">        <span class="keyword">ISNULL</span>(ep.[<span class="keyword">value</span>], <span class="string">&apos;&apos;</span>) <span class="keyword">AS</span> &#x5217;&#x8BF4;&#x660E; ,</span><br><span class="line">        t.name <span class="keyword">AS</span> &#x6570;&#x636E;&#x7C7B;&#x578B; ,</span><br><span class="line">        col.length <span class="keyword">AS</span> &#x957F;&#x5EA6; ,</span><br><span class="line">        <span class="keyword">ISNULL</span>(COLUMNPROPERTY(col.id, col.name, <span class="string">&apos;Scale&apos;</span>), <span class="number">0</span>) <span class="keyword">AS</span> &#x5C0F;&#x6570;&#x4F4D;&#x6570; ,</span><br><span class="line">        <span class="keyword">CASE</span> <span class="keyword">WHEN</span> COLUMNPROPERTY(col.id, col.name, <span class="string">&apos;IsIdentity&apos;</span>) = <span class="number">1</span> <span class="keyword">THEN</span> <span class="string">&apos;&#x221A;&apos;</span></span><br><span class="line">             <span class="keyword">ELSE</span> <span class="string">&apos;&apos;</span></span><br><span class="line">        <span class="keyword">END</span> <span class="keyword">AS</span> &#x6807;&#x8BC6; ,</span><br><span class="line">        <span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">EXISTS</span> ( <span class="keyword">SELECT</span>   <span class="number">1</span></span><br><span class="line">                           <span class="keyword">FROM</span>     dbo.sysindexes si</span><br><span class="line">                                    <span class="keyword">INNER</span> <span class="keyword">JOIN</span> dbo.sysindexkeys sik <span class="keyword">ON</span> si.id = sik.id</span><br><span class="line">                                                              <span class="keyword">AND</span> si.indid = sik.indid</span><br><span class="line">                                    <span class="keyword">INNER</span> <span class="keyword">JOIN</span> dbo.syscolumns sc <span class="keyword">ON</span> sc.id = sik.id</span><br><span class="line">                                                              <span class="keyword">AND</span> sc.colid = sik.colid</span><br><span class="line">                                    <span class="keyword">INNER</span> <span class="keyword">JOIN</span> dbo.sysobjects so <span class="keyword">ON</span> so.name = si.name</span><br><span class="line">                                                              <span class="keyword">AND</span> so.xtype = <span class="string">&apos;PK&apos;</span></span><br><span class="line">                           <span class="keyword">WHERE</span>    sc.id = col.id</span><br><span class="line">                                    <span class="keyword">AND</span> sc.colid = col.colid ) <span class="keyword">THEN</span> <span class="string">&apos;&#x221A;&apos;</span></span><br><span class="line">             <span class="keyword">ELSE</span> <span class="string">&apos;&apos;</span></span><br><span class="line">        <span class="keyword">END</span> <span class="keyword">AS</span> &#x4E3B;&#x952E; ,</span><br><span class="line">        <span class="keyword">CASE</span> <span class="keyword">WHEN</span> col.isnullable = <span class="number">1</span> <span class="keyword">THEN</span> <span class="string">&apos;&#x221A;&apos;</span></span><br><span class="line">             <span class="keyword">ELSE</span> <span class="string">&apos;&apos;</span></span><br><span class="line">        <span class="keyword">END</span> <span class="keyword">AS</span> &#x5141;&#x8BB8;&#x7A7A; ,</span><br><span class="line">        <span class="keyword">ISNULL</span>(comm.text, <span class="string">&apos;&apos;</span>) <span class="keyword">AS</span> &#x9ED8;&#x8BA4;&#x503C;</span><br><span class="line"><span class="keyword">FROM</span>    dbo.syscolumns <span class="keyword">col</span></span><br><span class="line">        <span class="keyword">LEFT</span>  <span class="keyword">JOIN</span> dbo.systypes t <span class="keyword">ON</span> col.xtype = t.xusertype</span><br><span class="line">        <span class="keyword">inner</span> <span class="keyword">JOIN</span> dbo.sysobjects obj <span class="keyword">ON</span> col.id = obj.id</span><br><span class="line">                                         <span class="keyword">AND</span> obj.xtype = <span class="string">&apos;U&apos;</span></span><br><span class="line">                                         <span class="keyword">AND</span> obj.status &gt;= <span class="number">0</span></span><br><span class="line">        <span class="keyword">LEFT</span>  <span class="keyword">JOIN</span> dbo.syscomments comm <span class="keyword">ON</span> col.cdefault = comm.id</span><br><span class="line">        <span class="keyword">LEFT</span>  <span class="keyword">JOIN</span> sys.extended_properties ep <span class="keyword">ON</span> col.id = ep.major_id</span><br><span class="line">                                                      <span class="keyword">AND</span> col.colid = ep.minor_id</span><br><span class="line">                                                      <span class="keyword">AND</span> ep.name = <span class="string">&apos;MS_Description&apos;</span></span><br><span class="line">        <span class="keyword">LEFT</span>  <span class="keyword">JOIN</span> sys.extended_properties epTwo <span class="keyword">ON</span> obj.id = epTwo.major_id</span><br><span class="line">                                                         <span class="keyword">AND</span> epTwo.minor_id = <span class="number">0</span></span><br><span class="line">                                                         <span class="keyword">AND</span> epTwo.name = <span class="string">&apos;MS_Description&apos;</span></span><br><span class="line"><span class="keyword">WHERE</span>   obj.name = <span class="string">&apos;TableName&apos;</span><span class="comment">--&#x8868;&#x540D;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> col.colorder ;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 
-      
-    </div>
+                        
+                    </div>
 
-  </div>
+                    
+                    
+                    
 
-  <div class="article-footer">
-    <div class="article-meta pull-left">
+                    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2018-04-11T18:36:03.000Z" itemprop="datePublished">2018-04-12</time>
+
+    </span>
+    <span class="post-description-item">
+        
+
+    <span>
+        <i class="tags icon"></i>
+    </span>
 
     
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
+    <span class="ui tiny label">
         <a href="/blog/tags/SQL/">SQL</a>
     </span>
+
     
+
+    </span>
+</div>
+
+                </div>
+                
+                <div id="pagination" class="nav-web ui text container pagination">
+
+    <div class="ui stackable two column divided grid container">
+        <div class="row">
+            <div class="column nav-left">
+                
+
+                <a href="/blog/2018/04/25/python解析表格/" class="ui tiny button">
+
+                    <i class="angle left icon"></i>
+                    
+                    python解析表格
+                    
+
+                </a>
+
+                
+            </div>
+            <div class="column nav-right">
+                
+
+                <a href="/blog/2018/04/12/Window-Functions-OVER-子句/" class="ui tiny button">
+                    
+                    Window Functions 窗口函数
+                    
+                    <i class="angle right icon"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+                
+            </div>
+
+            
+            <div class="three wide computer three wide tablet column">
+
+                <div class="ui sticky article-toc" id="article-toc">
+                    <!-- toc -->
+                    <ol class="ui ordered list"><li><a href="#常用SQL命令"><span>常用SQL命令</span></a><ol><li><a href="#数据库维护类"><span>数据库维护类</span></a></li></ol></li></ol></li></ol>
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="ui vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted section divider"></div>
+        &copy; 2018 <a href="/">Black_Jack</a>,
+        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a
+                href="http://hexo.io/" target="_blank">Hexo</a>.
+    </div>
+</div>
 
     </div>
 
-    
-  </div>
-</article>
 
 
-    </main>
 
-    <footer class="site-footer">
-  <p class="site-info">
-    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
-    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
-    </br>
-    
-    &copy; 2018 Black_Jack
-    
-  </p>
-</footer>
-    
-  </div>
-</div>
+<!-- scripts list from theme config.yml -->
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
+
+<script src="/blog/js/semantic-ui-algolia.js"></script>
+
+<script src="/blog/js/aloha-events.js"></script>
+
+
+
 </body>
 </html>

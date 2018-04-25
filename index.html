@@ -1,202 +1,277 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>穷不忘道,老而能学</title>
 
-  
-  <meta name="author" content="Black_Jack">
-  
 
-  
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head prefix="og: http://ogp.me/ns#">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <title>穷不忘道,老而能学</title>
 
-  
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+<meta property="og:title" content="穷不忘道,老而能学">
+<meta property="og:url" content="https://foryl.github.io/blog/index.html">
+<meta property="og:site_name" content="穷不忘道,老而能学">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="穷不忘道,老而能学">
 
-  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:",
+  "image": "",
+  "name": "Black_Jack",
+  "url": "https://foryl.github.io/blog"
+}
+</script>
+    <script>
+    var algoliaEnabled = false;
+    
+</script>
 
-  
+    
 
-  <meta property="og:site_name" content="穷不忘道,老而能学"/>
+    
+    
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
+    
+    
+        <!-- stylesheets list from config.yml -->
+        
+        <link rel="stylesheet" href="/blog/css/aloha.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        
+    
 
-  
-  <meta property="og:image" content="/blog/favicon.ico"/>
-  
-
-  <link href="/blog/favicon.ico" rel="icon">
-  <link rel="alternate" href="/blog/atom.xml" title="穷不忘道,老而能学" type="application/atom+xml">
-  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
 </head>
+<body id="body" style="margin-bottom: 0;" class="pushable">
 
-
-<body>
-<div class="blog">
-  <div class="content">
-
-    <header>
-  <div class="site-branding">
-    <h1 class="site-title">
-      <a href="/blog/">穷不忘道,老而能学</a>
-    </h1>
-    <p class="site-description"></p>
-  </div>
-  <nav class="site-navigation">
-    <ul>
-      
-        <li><a href="/blog/">主页</a></li>
-      
-        <li><a href="/blog/archives">归档</a></li>
-      
-    </ul>
-  </nav>
-</header>
-
-    <main class="site-main posts-loop">
-    
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/blog/2018/04/12/常用SQL命令/"><span>常用SQL命令</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/blog/2018/04/12/常用SQL命令/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-04-11T18:36:03.000Z">
-          2018-04-12
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="常用SQL命令"><a href="#常用SQL命令" class="headerlink" title="常用SQL命令"></a>常用SQL命令</h2><h4 id="数据库维护类"><a href="#数据库维护类" class="headerlink" title="数据库维护类"></a>数据库维护类</h4><ul>
-<li><p>日志压缩</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">DATABASE</span> [DataBaseName] <span class="keyword">SET</span> <span class="keyword">RECOVERY</span> SIMPLE  </span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">DATABASE</span> [DataBaseName] <span class="keyword">SET</span> <span class="keyword">RECOVERY</span> <span class="keyword">FULL</span>  </span><br><span class="line">DBCC SHRINKDATABASE([DataBaseName], <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查询表结构</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--快速查看表结构（比较全面的）</span></span><br><span class="line"><span class="keyword">SELECT</span>  <span class="keyword">CASE</span> <span class="keyword">WHEN</span> col.colorder = <span class="number">1</span> <span class="keyword">THEN</span> obj.name</span><br><span class="line">                  <span class="keyword">ELSE</span> <span class="string">''</span></span><br><span class="line">             <span class="keyword">END</span> <span class="keyword">AS</span> 表名,</span><br><span class="line">        col.colorder <span class="keyword">AS</span> 序号 ,</span><br><span class="line">        col.name <span class="keyword">AS</span> 列名 ,</span><br><span class="line">        <span class="keyword">ISNULL</span>(ep.[<span class="keyword">value</span>], <span class="string">''</span>) <span class="keyword">AS</span> 列说明 ,</span><br><span class="line">        t.name <span class="keyword">AS</span> 数据类型 ,</span><br><span class="line">        col.length <span class="keyword">AS</span> 长度 ,</span><br><span class="line">        <span class="keyword">ISNULL</span>(COLUMNPROPERTY(col.id, col.name, <span class="string">'Scale'</span>), <span class="number">0</span>) <span class="keyword">AS</span> 小数位数 ,</span><br><span class="line">        <span class="keyword">CASE</span> <span class="keyword">WHEN</span> COLUMNPROPERTY(col.id, col.name, <span class="string">'IsIdentity'</span>) = <span class="number">1</span> <span class="keyword">THEN</span> <span class="string">'√'</span></span><br><span class="line">             <span class="keyword">ELSE</span> <span class="string">''</span></span><br><span class="line">        <span class="keyword">END</span> <span class="keyword">AS</span> 标识 ,</span><br><span class="line">        <span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">EXISTS</span> ( <span class="keyword">SELECT</span>   <span class="number">1</span></span><br><span class="line">                           <span class="keyword">FROM</span>     dbo.sysindexes si</span><br><span class="line">                                    <span class="keyword">INNER</span> <span class="keyword">JOIN</span> dbo.sysindexkeys sik <span class="keyword">ON</span> si.id = sik.id</span><br><span class="line">                                                              <span class="keyword">AND</span> si.indid = sik.indid</span><br><span class="line">                                    <span class="keyword">INNER</span> <span class="keyword">JOIN</span> dbo.syscolumns sc <span class="keyword">ON</span> sc.id = sik.id</span><br><span class="line">                                                              <span class="keyword">AND</span> sc.colid = sik.colid</span><br><span class="line">                                    <span class="keyword">INNER</span> <span class="keyword">JOIN</span> dbo.sysobjects so <span class="keyword">ON</span> so.name = si.name</span><br><span class="line">                                                              <span class="keyword">AND</span> so.xtype = <span class="string">'PK'</span></span><br><span class="line">                           <span class="keyword">WHERE</span>    sc.id = col.id</span><br><span class="line">                                    <span class="keyword">AND</span> sc.colid = col.colid ) <span class="keyword">THEN</span> <span class="string">'√'</span></span><br><span class="line">             <span class="keyword">ELSE</span> <span class="string">''</span></span><br><span class="line">        <span class="keyword">END</span> <span class="keyword">AS</span> 主键 ,</span><br><span class="line">        <span class="keyword">CASE</span> <span class="keyword">WHEN</span> col.isnullable = <span class="number">1</span> <span class="keyword">THEN</span> <span class="string">'√'</span></span><br><span class="line">             <span class="keyword">ELSE</span> <span class="string">''</span></span><br><span class="line">        <span class="keyword">END</span> <span class="keyword">AS</span> 允许空 ,</span><br><span class="line">        <span class="keyword">ISNULL</span>(comm.text, <span class="string">''</span>) <span class="keyword">AS</span> 默认值</span><br><span class="line"><span class="keyword">FROM</span>    dbo.syscolumns <span class="keyword">col</span></span><br><span class="line">        <span class="keyword">LEFT</span>  <span class="keyword">JOIN</span> dbo.systypes t <span class="keyword">ON</span> col.xtype = t.xusertype</span><br><span class="line">        <span class="keyword">inner</span> <span class="keyword">JOIN</span> dbo.sysobjects obj <span class="keyword">ON</span> col.id = obj.id</span><br><span class="line">                                         <span class="keyword">AND</span> obj.xtype = <span class="string">'U'</span></span><br><span class="line">                                         <span class="keyword">AND</span> obj.status &gt;= <span class="number">0</span></span><br><span class="line">        <span class="keyword">LEFT</span>  <span class="keyword">JOIN</span> dbo.syscomments comm <span class="keyword">ON</span> col.cdefault = comm.id</span><br><span class="line">        <span class="keyword">LEFT</span>  <span class="keyword">JOIN</span> sys.extended_properties ep <span class="keyword">ON</span> col.id = ep.major_id</span><br><span class="line">                                                      <span class="keyword">AND</span> col.colid = ep.minor_id</span><br><span class="line">                                                      <span class="keyword">AND</span> ep.name = <span class="string">'MS_Description'</span></span><br><span class="line">        <span class="keyword">LEFT</span>  <span class="keyword">JOIN</span> sys.extended_properties epTwo <span class="keyword">ON</span> obj.id = epTwo.major_id</span><br><span class="line">                                                         <span class="keyword">AND</span> epTwo.minor_id = <span class="number">0</span></span><br><span class="line">                                                         <span class="keyword">AND</span> epTwo.name = <span class="string">'MS_Description'</span></span><br><span class="line"><span class="keyword">WHERE</span>   obj.name = <span class="string">'TableName'</span><span class="comment">--表名</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> col.colorder ;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-      
+    <div class="ui top fixed menu">
+        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
     </div>
 
-  </div>
+    <div id="menu-sidebar" class="ui left vertical sidebar menu">
 
-  <div class="article-footer">
-    <div class="article-meta pull-left">
+    <div id="sidebar-top">
+        <div class="content">
+            <h3>穷不忘道,老而能学</h3>
+        </div>
+    </div>
+    <div class="ui container sidebar-card">
+    <div class="ui people shape content">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img class="ui medium bordered image" src="/blog/images/me.png">
+                </div>
+                <div class="content">
+                    <a class="header">Black_Jack</a>
+                    
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                        
+                    </div>
 
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/blog/tags/SQL/">SQL</a>
-    </span>
-    
-
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    
-  </div>
-</article>
 
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/blog/2018/04/12/Window-Functions-OVER-子句/"><span>Window Functions OVER 子句</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/blog/2018/04/12/Window-Functions-OVER-子句/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-04-11T17:14:53.000Z">
-          2018-04-12
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h4 id="OVER"><a href="#OVER" class="headerlink" title="OVER"></a>OVER</h4><ul>
-<li>覆盖了窗口所覆盖的与当前行相关的数据行集、行的排序及其他相关元素</li>
-<li>更准确的说,根据窗口函数作为输入出现在查询逻辑处理阶段的位置，窗口函数可以是一个数据行集或一个关系</li>
-<li>集合，排序，分布，偏移</li>
-</ul>
-<h4 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h4><ul>
-<li>SUM</li>
-<li>COUNT</li>
-<li>MIN</li>
-<li>MAX<br>SQLSERVER2005开始支持</li>
-</ul>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/blog/tags/SQL/">SQL</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-
-<nav class="pagination">
-  
-  
-</nav>
-    </main>
-
-    <footer class="site-footer">
-  <p class="site-info">
-    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
-    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
-    </br>
-    
-    &copy; 2018 Black_Jack
-    
-  </p>
-</footer>
-    
-  </div>
 </div>
+
+    
+    
+
+    
+
+    
+    <a href="/index.html" class="item" >
+        <i class="home icon"></i>
+        首页
+    </a>
+
+    
+
+    
+</div>
+
+    <div class="pusher body-content">
+        <div id="content" class="ui main container">
+            <!--<div class="ui one column grid">-->
+                <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                        
+
+<div class="ui relaxed list">
+
+    
+
+    
+
+    <div class="item">
+
+        <div class="content post-content">
+
+    <a class="header" style="display: inline-block;" href="/blog/2018/04/25/python解析表格/">
+        
+        
+        python解析表格
+    </a>
+    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2018-04-25T14:00:23.000Z" itemprop="datePublished">2018-04-25</time>
+
+    </span>
+    <span class="post-description-item">
+        
+
+    <span>
+        <i class="tags icon"></i>
+    </span>
+
+    
+    <span class="ui tiny label">
+        <a href="/blog/tags/python/">python</a>
+    </span>
+
+    
+
+    </span>
+</div>
+</div>
+
+    </div>
+
+    
+
+    
+
+    <div class="item">
+
+        <div class="content post-content">
+
+    <a class="header" style="display: inline-block;" href="/blog/2018/04/12/常用SQL命令/">
+        
+        
+        常用SQL命令
+    </a>
+    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2018-04-11T18:36:03.000Z" itemprop="datePublished">2018-04-12</time>
+
+    </span>
+    <span class="post-description-item">
+        
+
+    <span>
+        <i class="tags icon"></i>
+    </span>
+
+    
+    <span class="ui tiny label">
+        <a href="/blog/tags/SQL/">SQL</a>
+    </span>
+
+    
+
+    </span>
+</div>
+</div>
+
+    </div>
+
+    
+
+    
+
+    <div class="item">
+
+        <div class="content post-content">
+
+    <a class="header" style="display: inline-block;" href="/blog/2018/04/12/Window-Functions-OVER-子句/">
+        
+        
+        Window Functions 窗口函数
+    </a>
+    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2018-04-11T17:14:53.000Z" itemprop="datePublished">2018-04-12</time>
+
+    </span>
+    <span class="post-description-item">
+        
+
+    <span>
+        <i class="tags icon"></i>
+    </span>
+
+    
+    <span class="ui tiny label">
+        <a href="/blog/tags/SQL/">SQL</a>
+    </span>
+
+    
+
+    </span>
+</div>
+</div>
+
+    </div>
+
+    
+</div>
+
+
+
+    
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="ui vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted section divider"></div>
+        &copy; 2018 <a href="/">Black_Jack</a>,
+        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a
+                href="http://hexo.io/" target="_blank">Hexo</a>.
+    </div>
+</div>
+
+    </div>
+
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
+
+<script src="/blog/js/semantic-ui-algolia.js"></script>
+
+<script src="/blog/js/aloha-events.js"></script>
+
+
+
 </body>
 </html>
