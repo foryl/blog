@@ -1,0 +1,251 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head prefix="og: http://ogp.me/ns#">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <title>浏览器缓存,系统缓存,路由器缓存,isp DNS缓存 | 穷不忘道,老而能学</title>
+
+    <!-- Open Graph -->
+    <meta name="description" content="&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x7F13;&amp;#x5B58;&amp;#x8FD9;&amp;#x91CC;&amp;#x662F;MDN&amp;#x4E0A;&amp;#x7684;&amp;#x5173;&amp;#x4E8E;Cache-Control&amp;#x7684;&amp;#x4ECB;&amp;#x7ECD;&amp;#x3002;&amp;#x5728;HTTP&amp;#x7684;&amp;#x54CD;&amp;#x5E94;&amp;#x548C;&amp;#x8BF7;&amp;#x6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器缓存,系统缓存,路由器缓存,isp DNS缓存">
+<meta property="og:url" content="https://foryl.github.io/blog/2018/05/03/DNS缓存/index.html">
+<meta property="og:site_name" content="穷不忘道,老而能学">
+<meta property="og:description" content="&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x7F13;&amp;#x5B58;&amp;#x8FD9;&amp;#x91CC;&amp;#x662F;MDN&amp;#x4E0A;&amp;#x7684;&amp;#x5173;&amp;#x4E8E;Cache-Control&amp;#x7684;&amp;#x4ECB;&amp;#x7ECD;&amp;#x3002;&amp;#x5728;HTTP&amp;#x7684;&amp;#x54CD;&amp;#x5E94;&amp;#x548C;&amp;#x8BF7;&amp;#x6">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-03T16:39:01.724Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浏览器缓存,系统缓存,路由器缓存,isp DNS缓存">
+<meta name="twitter:description" content="&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x7F13;&amp;#x5B58;&amp;#x8FD9;&amp;#x91CC;&amp;#x662F;MDN&amp;#x4E0A;&amp;#x7684;&amp;#x5173;&amp;#x4E8E;Cache-Control&amp;#x7684;&amp;#x4ECB;&amp;#x7ECD;&amp;#x3002;&amp;#x5728;HTTP&amp;#x7684;&amp;#x54CD;&amp;#x5E94;&amp;#x548C;&amp;#x8BF7;&amp;#x6">
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:",
+  "image": "",
+  "name": "Black_Jack",
+  "url": "https://foryl.github.io/blog"
+}
+</script>
+    <script>
+    var algoliaEnabled = false;
+    
+</script>
+
+    
+
+    
+    
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
+    
+    
+        <!-- stylesheets list from config.yml -->
+        
+        <link rel="stylesheet" href="/blog/css/aloha.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        
+    
+
+</head>
+<body id="body" style="margin-bottom: 0;" class="pushable">
+
+    <div class="ui top fixed menu">
+        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
+    </div>
+
+    <div id="menu-sidebar" class="ui left vertical sidebar menu">
+
+    <div id="sidebar-top">
+        <div class="content">
+            <h3>穷不忘道,老而能学</h3>
+        </div>
+    </div>
+    <div class="ui container sidebar-card">
+    <div class="ui people shape content">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img class="ui medium bordered image" src="/blog/images/me.png">
+                </div>
+                <div class="content">
+                    <a class="header">Black_Jack</a>
+                    
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+    
+    
+
+    
+
+    
+    <a href="https://foryl.github.io/resume/" class="item" >
+        <i class="home icon"></i>
+        首页
+    </a>
+
+    
+
+    
+</div>
+
+    <div class="pusher body-content">
+        <div id="content" class="ui main container">
+            <!--<div class="ui one column grid">-->
+                <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                        <div id="post-DNS缓存" class="ui main container article-type-post">
+
+    
+
+    <div class="ui divided grid">
+
+        <div class="two column row" id="article-content">
+
+            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
+                
+
+<h1 class="ui header">
+    
+    浏览器缓存,系统缓存,路由器缓存,isp DNS缓存
+</h1>
+
+
+
+                <div class="article-inner">
+
+                    <div class="article-entry" itemprop="articleBody">
+                        
+                        <h4 id="&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;"><a href="#&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;" class="headerlink" title="&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;"></a>&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;</h4><p>&#x8FD9;&#x91CC;&#x662F;MDN&#x4E0A;&#x7684;&#x5173;&#x4E8E;<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control" target="_blank" rel="noopener">Cache-Control</a><br>&#x7684;&#x4ECB;&#x7ECD;&#x3002;&#x5728;HTTP&#x7684;&#x54CD;&#x5E94;&#x548C;&#x8BF7;&#x6C42;&#x4E2D;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5BF9;Cache-Control&#x7684;&#x8BBE;&#x7F6E;&#x6765;&#x5B9E;&#x73B0;&#x7F13;&#x5B58;&#x673A;&#x5236;<br>&#x5728;MDN&#x4E0A;&#x6709;&#x8BE6;&#x7EC6;&#x7684;&#x914D;&#x7F6E;&#x8BF4;&#x660E;&#x3002;<br>&#x5E38;&#x7528;&#x7684;Cache-Control&#x6307;&#x4EE4;&#x914D;&#x7F6E;&#x4E3A;&#xFF1A;</p>
+
+                        
+                    </div>
+
+                    
+                    
+                    
+
+                    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2018-05-02T17:01:11.000Z" itemprop="datePublished">2018-05-03</time>
+
+    </span>
+    <span class="post-description-item">
+        
+    </span>
+</div>
+
+                </div>
+                
+                <div id="pagination" class="nav-web ui text container pagination">
+
+    <div class="ui stackable two column divided grid container">
+        <div class="row">
+            <div class="column nav-left">
+                
+
+                <a href="/blog/2018/05/03/Cache/" class="ui tiny button">
+
+                    <i class="angle left icon"></i>
+                    
+                    Session ViewState Cookie Cache -1
+                    
+
+                </a>
+
+                
+            </div>
+            <div class="column nav-right">
+                
+
+                <a href="/blog/2018/04/25/python解析表格/" class="ui tiny button">
+                    
+                    python解析表格
+                    
+                    <i class="angle right icon"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+                
+            </div>
+
+            
+            <div class="three wide computer three wide tablet column">
+
+                <div class="ui sticky article-toc" id="article-toc">
+                    <!-- toc -->
+                    <ol class="ui ordered list"><li><a href="#浏览器缓存"><span>浏览器缓存</span></a></li></ol>
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="ui vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted section divider"></div>
+        &copy; 2018 <a href="/">Black_Jack</a>,
+        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a
+                href="http://hexo.io/" target="_blank">Hexo</a>.
+    </div>
+</div>
+
+    </div>
+
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
+
+<script src="/blog/js/semantic-ui-algolia.js"></script>
+
+<script src="/blog/js/aloha-events.js"></script>
+
+
+
+</body>
+</html>
