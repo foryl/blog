@@ -1,316 +1,66 @@
-
-
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head prefix="og: http://ogp.me/ns#">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <meta name="description" content="">
-    <title>Window Functions 窗口函数 | 穷不忘道,老而能学</title>
-
-    <!-- Open Graph -->
-    <meta name="description" content="OVER&amp;#x5B50;&amp;#x53E5; &amp;#x805A;&amp;#x5408;&amp;#x51FD;&amp;#x6570; &amp;#x6392;&amp;#x540D;&amp;#x51FD;&amp;#x6570; &amp;#x504F;&amp;#x79FB;&amp;#x51FD;&amp;#x6570;   &amp;#x7A97;&amp;#x53E3;&amp;#x51FD;&amp;#x6570;&amp;#x5B9E;&amp;#x73B0;&amp;#x57FA;&amp;#x672C;&amp;#x529F;&amp;#x8">
-<meta name="keywords" content="SQL">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Window Functions 窗口函数">
-<meta property="og:url" content="https://foryl.github.io/blog/2018/04/12/Window-Functions-OVER-子句/index.html">
-<meta property="og:site_name" content="穷不忘道,老而能学">
-<meta property="og:description" content="OVER&amp;#x5B50;&amp;#x53E5; &amp;#x805A;&amp;#x5408;&amp;#x51FD;&amp;#x6570; &amp;#x6392;&amp;#x540D;&amp;#x51FD;&amp;#x6570; &amp;#x504F;&amp;#x79FB;&amp;#x51FD;&amp;#x6570;   &amp;#x7A97;&amp;#x53E3;&amp;#x51FD;&amp;#x6570;&amp;#x5B9E;&amp;#x73B0;&amp;#x57FA;&amp;#x672C;&amp;#x529F;&amp;#x8">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-16T17:28:52.705Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Window Functions 窗口函数">
-<meta name="twitter:description" content="OVER&amp;#x5B50;&amp;#x53E5; &amp;#x805A;&amp;#x5408;&amp;#x51FD;&amp;#x6570; &amp;#x6392;&amp;#x540D;&amp;#x51FD;&amp;#x6570; &amp;#x504F;&amp;#x79FB;&amp;#x51FD;&amp;#x6570;   &amp;#x7A97;&amp;#x53E3;&amp;#x51FD;&amp;#x6570;&amp;#x5B9E;&amp;#x73B0;&amp;#x57FA;&amp;#x672C;&amp;#x529F;&amp;#x8">
-
-    <script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Person",
-  "email": "mailto:",
-  "image": "",
-  "name": "Black_Jack",
-  "url": "https://foryl.github.io/blog"
-}
-</script>
-    <script>
-    var algoliaEnabled = false;
-    
-</script>
-
-    
-
-    
-    
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-    
-    
-    
-        <!-- stylesheets list from config.yml -->
-        
-        <link rel="stylesheet" href="/blog/css/aloha.css">
-        
-        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
-        
-        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
-        
-    
-
-</head>
-<body id="body" style="margin-bottom: 0;" class="pushable">
-
-    <div class="ui top fixed menu">
-        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
-    </div>
-
-    <div id="menu-sidebar" class="ui left vertical sidebar menu">
-
-    <div id="sidebar-top">
-        <div class="content">
-            <h3>穷不忘道,老而能学</h3>
-        </div>
-    </div>
-    <div class="ui container sidebar-card">
-    <div class="ui people shape content">
-        <div class="active side">
-            <div class="ui card">
-                <div class="image">
-                    <img class="ui medium bordered image" src="/blog/images/me.png">
-                </div>
-                <div class="content">
-                    <a class="header">Black_Jack</a>
-                    
-                </div>
-                <div class="extra content">
-                    <div class="ui list">
-                        
-                        
-                    </div>
-
-                </div>
-                <div class="extra content">
-                    <div class="ui list">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-</div>
-
-    
-    
-
-    
-
-    
-    <a href="https://foryl.github.io/resume/" class="item" >
-        <i class="home icon"></i>
-        首页
-    </a>
-
-    
-
-    
-</div>
-
-    <div class="pusher body-content">
-        <div id="content" class="ui main container">
-            <!--<div class="ui one column grid">-->
-                <!--<div class="column">-->
-                    <!--<div class="ui main container">-->
-                        <div id="post-Window-Functions-OVER-子句" class="ui main container article-type-post">
-
-    
-
-    <div class="ui divided grid">
-
-        <div class="two column row" id="article-content">
-
-            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
-                
-
-<h1 class="ui header">
-    
-    Window Functions 窗口函数
-</h1>
-
-
-
-                <div class="article-inner">
-
-                    <div class="article-entry" itemprop="articleBody">
-                        
-                        <blockquote>
-<ol class="ui list">
-<li><a href="#OVER&#x5B50;&#x53E5;" title="OVER&#x5B50;&#x53E5;">OVER&#x5B50;&#x53E5;</a><ol>
-<li><a href="#&#x805A;&#x5408;&#x51FD;&#x6570;" title="&#x805A;&#x5408;&#x51FD;&#x6570;">&#x805A;&#x5408;&#x51FD;&#x6570;</a></li>
-<li><a href="#&#x6392;&#x540D;&#x51FD;&#x6570;" title="&#x6392;&#x540D;&#x51FD;&#x6570;">&#x6392;&#x540D;&#x51FD;&#x6570;</a></li>
-<li><a href="#&#x504F;&#x79FB;&#x51FD;&#x6570;" title="&#x504F;&#x79FB;&#x51FD;&#x6570;">&#x504F;&#x79FB;&#x51FD;&#x6570;</a></li>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Window Functions 窗口函数"><meta name="keywords" content="SQL"><meta name="author" content="Black_Jack,undefined"><meta name="copyright" content="Black_Jack"><title>Window Functions 窗口函数 | 穷不忘道,老而能学</title><link rel="shortcut icon" href="/blog/favicon.ico"><link rel="stylesheet" href="/blog/css/index.css"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css?version=1.5.3"><link rel="dns-prefetch" href="https://cdn.staticfile.org"><link rel="dns-prefetch" href="https://cdn.bootcss.com"><link rel="dns-prefetch" href="https://creativecommons.org"><script>var GLOBAL_CONFIG = { 
+  root: '/blog/',
+  algolia: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  localSearch: undefined
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#OVER子句"><span class="toc-number">1.</span> <span class="toc-text">OVER子句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#聚合函数"><span class="toc-number">1.1.</span> <span class="toc-text">聚合函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#排名函数"><span class="toc-number">1.2.</span> <span class="toc-text">排名函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分布函数"><span class="toc-number">1.3.</span> <span class="toc-text">分布函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#偏移函数"><span class="toc-number">1.4.</span> <span class="toc-text">偏移函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#窗口函数实现基本功能"><span class="toc-number">2.</span> <span class="toc-text">窗口函数实现基本功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分页"><span class="toc-number">2.1.</span> <span class="toc-text">分页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#去重"><span class="toc-number">2.2.</span> <span class="toc-text">去重</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#返回每组前n条数据"><span class="toc-number">2.3.</span> <span class="toc-text">返回每组前n条数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#计算累积合计"><span class="toc-number">2.4.</span> <span class="toc-text">计算累积合计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#统计最大并发"><span class="toc-number">2.5.</span> <span class="toc-text">统计最大并发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gap-amp-island"><span class="toc-number">2.6.</span> <span class="toc-text">gap&amp;island</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#计算分布的模式"><span class="toc-number">2.7.</span> <span class="toc-text">计算分布的模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#排序层次结构"><span class="toc-number">2.8.</span> <span class="toc-text">排序层次结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据透视"><span class="toc-number">2.9.</span> <span class="toc-text">数据透视</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#计算时效性"><span class="toc-number">2.10.</span> <span class="toc-text">计算时效性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#窗口函数优化"><span class="toc-number">3.</span> <span class="toc-text">窗口函数优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于窗口函数的解决方案"><span class="toc-number">4.</span> <span class="toc-text">基于窗口函数的解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#所用数据源"><span class="toc-number">5.</span> <span class="toc-text">所用数据源</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/blog/img/avatar.png"></div><div class="author-info__name text-center">Black_Jack</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/blog/archives"><span class="pull-left">Articles</span><span class="pull-right">6</span></a><a class="author-info-articles__tags article-meta" href="/blog/tags"><span class="pull-left">Tags</span><span class="pull-right">4</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container" style="background-image: url(true)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/blog/">穷不忘道,老而能学</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="post-info"><div id="post-title">Window Functions 窗口函数</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-12</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div id="post-content"><blockquote>
+<ol>
+<li><a href="#OVER子句" title="OVER子句">OVER子句</a><ol>
+<li><a href="#聚合函数" title="聚合函数">聚合函数</a></li>
+<li><a href="#排名函数" title="排名函数">排名函数</a></li>
+<li><a href="#偏移函数" title="偏移函数">偏移函数</a></li>
 </ol>
 </li>
-<li><a href="#&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x57FA;&#x672C;&#x529F;&#x80FD;" title="&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x57FA;&#x672C;&#x529F;&#x80FD;">&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x57FA;&#x672C;&#x529F;&#x80FD;</a><ol>
-<li><a href="#&#x5206;&#x9875;" title="&#x5206;&#x9875;">&#x5206;&#x9875;</a></li>
-<li><a href="#&#x53BB;&#x91CD;" title="&#x53BB;&#x91CD;">&#x53BB;&#x91CD;</a></li>
-<li><a href="#&#x8FD4;&#x56DE;&#x6BCF;&#x7EC4;&#x524D;n&#x6761;&#x6570;&#x636E;" title="&#x8FD4;&#x56DE;&#x6BCF;&#x7EC4;&#x524D;n&#x6761;&#x6570;&#x636E;">&#x8FD4;&#x56DE;&#x6BCF;&#x7EC4;&#x524D;n&#x6761;&#x6570;&#x636E;</a></li>
-<li><a href="#&#x8BA1;&#x7B97;&#x7D2F;&#x79EF;&#x5408;&#x8BA1;" title="&#x8BA1;&#x7B97;&#x7D2F;&#x79EF;&#x5408;&#x8BA1;">&#x8BA1;&#x7B97;&#x7D2F;&#x79EF;&#x5408;&#x8BA1;</a></li>
-<li><a href="#&#x7EDF;&#x8BA1;&#x6700;&#x5927;&#x5E76;&#x53D1;" title="&#x7EDF;&#x8BA1;&#x6700;&#x5927;&#x5E76;&#x53D1;">&#x7EDF;&#x8BA1;&#x6700;&#x5927;&#x5E76;&#x53D1;</a></li>
+<li><a href="#窗口函数实现基本功能" title="窗口函数实现基本功能">窗口函数实现基本功能</a><ol>
+<li><a href="#分页" title="分页">分页</a></li>
+<li><a href="#去重" title="去重">去重</a></li>
+<li><a href="#返回每组前n条数据" title="返回每组前n条数据">返回每组前n条数据</a></li>
+<li><a href="#计算累积合计" title="计算累积合计">计算累积合计</a></li>
+<li><a href="#统计最大并发" title="统计最大并发">统计最大并发</a></li>
 <li><a href="#gap&amp;island" title="gap&amp;island">gap&amp;island</a></li>
-<li><a href="#&#x8BA1;&#x7B97;&#x5206;&#x5E03;&#x7684;&#x6A21;&#x5F0F;" title="&#x8BA1;&#x7B97;&#x5206;&#x5E03;&#x7684;&#x6A21;&#x5F0F;">&#x8BA1;&#x7B97;&#x5206;&#x5E03;&#x7684;&#x6A21;&#x5F0F;</a></li>
-<li><a href="#&#x6392;&#x5E8F;&#x5C42;&#x6B21;&#x7ED3;&#x6784;" title="&#x6392;&#x5E8F;&#x5C42;&#x6B21;&#x7ED3;&#x6784;">&#x6392;&#x5E8F;&#x5C42;&#x6B21;&#x7ED3;&#x6784;</a></li>
-<li><a href="#&#x6570;&#x636E;&#x900F;&#x89C6;" title="&#x6570;&#x636E;&#x900F;&#x89C6;">&#x6570;&#x636E;&#x900F;&#x89C6;</a></li>
-<li><a href="#&#x8BA1;&#x7B97;&#x65F6;&#x6548;&#x6027;" title="&#x8BA1;&#x7B97;&#x65F6;&#x6548;&#x6027;">&#x8BA1;&#x7B97;&#x65F6;&#x6548;&#x6027;</a></li>
+<li><a href="#计算分布的模式" title="计算分布的模式">计算分布的模式</a></li>
+<li><a href="#排序层次结构" title="排序层次结构">排序层次结构</a></li>
+<li><a href="#数据透视" title="数据透视">数据透视</a></li>
+<li><a href="#计算时效性" title="计算时效性">计算时效性</a></li>
 </ol>
 </li>
-<li><a href="#&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x4F18;&#x5316;" title="&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x4F18;&#x5316;">&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x4F18;&#x5316;</a></li>
-<li><a href="#&#x57FA;&#x4E8E;&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;" title="&#x57FA;&#x4E8E;&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;">&#x57FA;&#x4E8E;&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;</a></li>
-<li><a href="#&#x6240;&#x7528;&#x6570;&#x636E;&#x6E90;" title="&#x6240;&#x7528;&#x6570;&#x636E;&#x6E90;">&#x6240;&#x7528;&#x6570;&#x636E;&#x6E90;</a></li>
+<li><a href="#窗口函数优化" title="窗口函数优化">窗口函数优化</a></li>
+<li><a href="#基于窗口函数的解决方案" title="基于窗口函数的解决方案">基于窗口函数的解决方案</a></li>
+<li><a href="#所用数据源" title="所用数据源">所用数据源</a></li>
 </ol>
 </blockquote>
-<h2 id="OVER&#x5B50;&#x53E5;"><a href="#OVER&#x5B50;&#x53E5;" class="headerlink" title="OVER&#x5B50;&#x53E5;"></a>OVER&#x5B50;&#x53E5;</h2><ul class="ui list">
-<li>&#x8986;&#x76D6;&#x4E86;&#x7A97;&#x53E3;&#x6240;&#x8986;&#x76D6;&#x7684;&#x4E0E;&#x5F53;&#x524D;&#x884C;&#x76F8;&#x5173;&#x7684;&#x6570;&#x636E;&#x884C;&#x96C6;&#x3001;&#x884C;&#x7684;&#x6392;&#x5E8F;&#x53CA;&#x5176;&#x4ED6;&#x76F8;&#x5173;&#x5143;&#x7D20;</li>
-<li>&#x66F4;&#x51C6;&#x786E;&#x7684;&#x8BF4;,&#x6839;&#x636E;&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#x51FA;&#x73B0;&#x5728;&#x67E5;&#x8BE2;&#x903B;&#x8F91;&#x5904;&#x7406;&#x9636;&#x6BB5;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x884C;&#x96C6;&#x6216;&#x4E00;&#x4E2A;&#x5173;&#x7CFB;</li>
+<h2 id="OVER子句"><a href="#OVER子句" class="headerlink" title="OVER子句"></a>OVER子句</h2><ul>
+<li>覆盖了窗口所覆盖的与当前行相关的数据行集、行的排序及其他相关元素</li>
+<li>更准确的说,根据窗口函数作为输入出现在查询逻辑处理阶段的位置，窗口函数可以是一个数据行集或一个关系</li>
 </ul>
-<p>&#x4F8B;&#x5B50;&#x5982;&#x4E0B;&#xFF1A;<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> orderid,orderdate,val,<span class="keyword">RANK</span>() <span class="keyword">OVER</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> val <span class="keyword">DESC</span>) <span class="keyword">AS</span> rnk</span><br><span class="line"><span class="keyword">FROM</span> Sales.OrderValues</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> rnk</span><br></pre></td></tr></table></figure></p>
-<h3 id="&#x805A;&#x5408;&#x51FD;&#x6570;"><a href="#&#x805A;&#x5408;&#x51FD;&#x6570;" class="headerlink" title="&#x805A;&#x5408;&#x51FD;&#x6570;"></a>&#x805A;&#x5408;&#x51FD;&#x6570;</h3><ul class="ui list">
+<p>例子如下：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> orderid,orderdate,val,<span class="keyword">RANK</span>() <span class="keyword">OVER</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> val <span class="keyword">DESC</span>) <span class="keyword">AS</span> rnk</span><br><span class="line"><span class="keyword">FROM</span> Sales.OrderValues</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> rnk</span><br></pre></td></tr></table></figure></p>
+<h3 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h3><ul>
 <li>SUM</li>
 <li>COUNT</li>
 <li>MIN</li>
-<li>MAX<br>SQLSERVER 2005 &#x5F00;&#x59CB;&#x652F;&#x6301;</li>
+<li>MAX<br>SQLSERVER 2005 开始支持</li>
 </ul>
-<h3 id="&#x6392;&#x540D;&#x51FD;&#x6570;"><a href="#&#x6392;&#x540D;&#x51FD;&#x6570;" class="headerlink" title="&#x6392;&#x540D;&#x51FD;&#x6570;"></a>&#x6392;&#x540D;&#x51FD;&#x6570;</h3><ul class="ui list">
+<h3 id="排名函数"><a href="#排名函数" class="headerlink" title="排名函数"></a>排名函数</h3><ul>
 <li>RANK</li>
 <li>DENSE_RANK</li>
 <li>ROW_NUMBER</li>
-<li>NTILE<br>SQLSERVER 2005 &#x5F00;&#x59CB;&#x652F;&#x6301;</li>
+<li>NTILE<br>SQLSERVER 2005 开始支持</li>
 </ul>
-<h3 id="&#x5206;&#x5E03;&#x51FD;&#x6570;"><a href="#&#x5206;&#x5E03;&#x51FD;&#x6570;" class="headerlink" title="&#x5206;&#x5E03;&#x51FD;&#x6570;"></a>&#x5206;&#x5E03;&#x51FD;&#x6570;</h3><ul class="ui list">
+<h3 id="分布函数"><a href="#分布函数" class="headerlink" title="分布函数"></a>分布函数</h3><ul>
 <li>PERCENT_RANK</li>
 <li>CUME_DIST</li>
 <li>PERCENT_CONT</li>
-<li>PERCENTILE_DISC<br>SQLSERVER 2012 &#x5F00;&#x59CB;&#x652F;&#x6301;</li>
+<li>PERCENTILE_DISC<br>SQLSERVER 2012 开始支持</li>
 </ul>
-<h3 id="&#x504F;&#x79FB;&#x51FD;&#x6570;"><a href="#&#x504F;&#x79FB;&#x51FD;&#x6570;" class="headerlink" title="&#x504F;&#x79FB;&#x51FD;&#x6570;"></a>&#x504F;&#x79FB;&#x51FD;&#x6570;</h3><ul class="ui list">
+<h3 id="偏移函数"><a href="#偏移函数" class="headerlink" title="偏移函数"></a>偏移函数</h3><ul>
 <li>LAG</li>
 <li>LEAD</li>
 <li>FIRST_VALUE</li>
-<li>LAST_VALUE<br>&#x4EE5;&#x4E0A;&#x56DB;&#x4E2A;&#x51FD;&#x6570;SQL SERVER2012&#x5F00;&#x59CB;&#x652F;&#x6301;</li>
+<li>LAST_VALUE<br>以上四个函数SQL SERVER2012开始支持</li>
 <li>NTH_VALUE</li>
 </ul>
-<h2 id="&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x57FA;&#x672C;&#x529F;&#x80FD;"><a href="#&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x57FA;&#x672C;&#x529F;&#x80FD;" class="headerlink" title="&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x57FA;&#x672C;&#x529F;&#x80FD;"></a>&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x57FA;&#x672C;&#x529F;&#x80FD;</h2><h3 id="&#x5206;&#x9875;"><a href="#&#x5206;&#x9875;" class="headerlink" title="&#x5206;&#x9875;"></a>&#x5206;&#x9875;</h3><h3 id="&#x53BB;&#x91CD;"><a href="#&#x53BB;&#x91CD;" class="headerlink" title="&#x53BB;&#x91CD;"></a>&#x53BB;&#x91CD;</h3><h3 id="&#x8FD4;&#x56DE;&#x6BCF;&#x7EC4;&#x524D;n&#x6761;&#x6570;&#x636E;"><a href="#&#x8FD4;&#x56DE;&#x6BCF;&#x7EC4;&#x524D;n&#x6761;&#x6570;&#x636E;" class="headerlink" title="&#x8FD4;&#x56DE;&#x6BCF;&#x7EC4;&#x524D;n&#x6761;&#x6570;&#x636E;"></a>&#x8FD4;&#x56DE;&#x6BCF;&#x7EC4;&#x524D;n&#x6761;&#x6570;&#x636E;</h3><h3 id="&#x8BA1;&#x7B97;&#x7D2F;&#x79EF;&#x5408;&#x8BA1;"><a href="#&#x8BA1;&#x7B97;&#x7D2F;&#x79EF;&#x5408;&#x8BA1;" class="headerlink" title="&#x8BA1;&#x7B97;&#x7D2F;&#x79EF;&#x5408;&#x8BA1;"></a>&#x8BA1;&#x7B97;&#x7D2F;&#x79EF;&#x5408;&#x8BA1;</h3><h3 id="&#x7EDF;&#x8BA1;&#x6700;&#x5927;&#x5E76;&#x53D1;"><a href="#&#x7EDF;&#x8BA1;&#x6700;&#x5927;&#x5E76;&#x53D1;" class="headerlink" title="&#x7EDF;&#x8BA1;&#x6700;&#x5927;&#x5E76;&#x53D1;"></a>&#x7EDF;&#x8BA1;&#x6700;&#x5927;&#x5E76;&#x53D1;</h3><h3 id="gap-amp-island"><a href="#gap-amp-island" class="headerlink" title="gap&amp;island"></a>gap&amp;island</h3><h3 id="&#x8BA1;&#x7B97;&#x5206;&#x5E03;&#x7684;&#x6A21;&#x5F0F;"><a href="#&#x8BA1;&#x7B97;&#x5206;&#x5E03;&#x7684;&#x6A21;&#x5F0F;" class="headerlink" title="&#x8BA1;&#x7B97;&#x5206;&#x5E03;&#x7684;&#x6A21;&#x5F0F;"></a>&#x8BA1;&#x7B97;&#x5206;&#x5E03;&#x7684;&#x6A21;&#x5F0F;</h3><h3 id="&#x6392;&#x5E8F;&#x5C42;&#x6B21;&#x7ED3;&#x6784;"><a href="#&#x6392;&#x5E8F;&#x5C42;&#x6B21;&#x7ED3;&#x6784;" class="headerlink" title="&#x6392;&#x5E8F;&#x5C42;&#x6B21;&#x7ED3;&#x6784;"></a>&#x6392;&#x5E8F;&#x5C42;&#x6B21;&#x7ED3;&#x6784;</h3><h3 id="&#x6570;&#x636E;&#x900F;&#x89C6;"><a href="#&#x6570;&#x636E;&#x900F;&#x89C6;" class="headerlink" title="&#x6570;&#x636E;&#x900F;&#x89C6;"></a>&#x6570;&#x636E;&#x900F;&#x89C6;</h3><h3 id="&#x8BA1;&#x7B97;&#x65F6;&#x6548;&#x6027;"><a href="#&#x8BA1;&#x7B97;&#x65F6;&#x6548;&#x6027;" class="headerlink" title="&#x8BA1;&#x7B97;&#x65F6;&#x6548;&#x6027;"></a>&#x8BA1;&#x7B97;&#x65F6;&#x6548;&#x6027;</h3><h2 id="&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x4F18;&#x5316;"><a href="#&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x4F18;&#x5316;" class="headerlink" title="&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x4F18;&#x5316;"></a>&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x4F18;&#x5316;</h2><h2 id="&#x57FA;&#x4E8E;&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;"><a href="#&#x57FA;&#x4E8E;&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;" class="headerlink" title="&#x57FA;&#x4E8E;&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;"></a>&#x57FA;&#x4E8E;&#x7A97;&#x53E3;&#x51FD;&#x6570;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;</h2><h2 id="&#x6240;&#x7528;&#x6570;&#x636E;&#x6E90;"><a href="#&#x6240;&#x7528;&#x6570;&#x636E;&#x6E90;" class="headerlink" title="&#x6240;&#x7528;&#x6570;&#x636E;&#x6E90;"></a>&#x6240;&#x7528;&#x6570;&#x636E;&#x6E90;</h2>
-                        
-                    </div>
-
-                    
-                    
-                    
-
-                    <div class="description post-description">
-    <span class="post-description-item">
-        <time datetime="2018-04-11T17:14:53.000Z" itemprop="datePublished">2018-04-12</time>
-
-    </span>
-    <span class="post-description-item">
-        
-
-    <span>
-        <i class="tags icon"></i>
-    </span>
-
-    
-    <span class="ui tiny label">
-        <a href="/blog/tags/SQL/">SQL</a>
-    </span>
-
-    
-
-    </span>
-</div>
-
-                </div>
-                
-                <div id="pagination" class="nav-web ui text container pagination">
-
-    <div class="ui stackable two column divided grid container">
-        <div class="row">
-            <div class="column nav-left">
-                
-
-                <a href="/blog/2018/04/12/常用SQL命令/" class="ui tiny button">
-
-                    <i class="angle left icon"></i>
-                    
-                    常用SQL命令
-                    
-
-                </a>
-
-                
-            </div>
-            <div class="column nav-right">
-                
-
-                <a class="ui tiny button disabled">下一篇<i class="angle right icon"></i></a>
-
-                
-            </div>
-        </div>
-    </div>
-
-</div>
-                
-            </div>
-
-            
-            <div class="three wide computer three wide tablet column">
-
-                <div class="ui sticky article-toc" id="article-toc">
-                    <!-- toc -->
-                    <ol class="ui ordered list"><li><a href="#OVER子句"><span>OVER子句</span></a><ol><li><a href="#聚合函数"><span>聚合函数</span></a></li><li><a href="#排名函数"><span>排名函数</span></a></li><li><a href="#分布函数"><span>分布函数</span></a></li><li><a href="#偏移函数"><span>偏移函数</span></a></li></ol></li><li><a href="#窗口函数实现基本功能"><span>窗口函数实现基本功能</span></a><ol><li><a href="#分页"><span>分页</span></a></li><li><a href="#去重"><span>去重</span></a></li><li><a href="#返回每组前n条数据"><span>返回每组前n条数据</span></a></li><li><a href="#计算累积合计"><span>计算累积合计</span></a></li><li><a href="#统计最大并发"><span>统计最大并发</span></a></li><li><a href="#gap-amp-island"><span>gap&island</span></a></li><li><a href="#计算分布的模式"><span>计算分布的模式</span></a></li><li><a href="#排序层次结构"><span>排序层次结构</span></a></li><li><a href="#数据透视"><span>数据透视</span></a></li><li><a href="#计算时效性"><span>计算时效性</span></a></li></ol></li><li><a href="#窗口函数优化"><span>窗口函数优化</span></a></li><li><a href="#基于窗口函数的解决方案"><span>基于窗口函数的解决方案</span></a></li><li><a href="#所用数据源"><span>所用数据源</span></a></li></ol>
-                </div>
-
-            </div>
-            
-
-        </div>
-    </div>
-</div>
-
-
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        </div>
-        <div class="ui vertical footer segment">
-    <div class="ui center aligned container">
-        <div class="ui inverted section divider"></div>
-        &copy; 2018 <a href="/">Black_Jack</a>,
-        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a
-                href="http://hexo.io/" target="_blank">Hexo</a>.
-    </div>
-</div>
-
-    </div>
-
-
-
-
-<!-- scripts list from theme config.yml -->
-
-<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
-
-<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
-
-<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
-
-<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
-
-<script src="/blog/js/semantic-ui-algolia.js"></script>
-
-<script src="/blog/js/aloha-events.js"></script>
-
-
-
-</body>
-</html>
+<h2 id="窗口函数实现基本功能"><a href="#窗口函数实现基本功能" class="headerlink" title="窗口函数实现基本功能"></a>窗口函数实现基本功能</h2><h3 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h3><h3 id="去重"><a href="#去重" class="headerlink" title="去重"></a>去重</h3><h3 id="返回每组前n条数据"><a href="#返回每组前n条数据" class="headerlink" title="返回每组前n条数据"></a>返回每组前n条数据</h3><h3 id="计算累积合计"><a href="#计算累积合计" class="headerlink" title="计算累积合计"></a>计算累积合计</h3><h3 id="统计最大并发"><a href="#统计最大并发" class="headerlink" title="统计最大并发"></a>统计最大并发</h3><h3 id="gap-amp-island"><a href="#gap-amp-island" class="headerlink" title="gap&amp;island"></a>gap&amp;island</h3><h3 id="计算分布的模式"><a href="#计算分布的模式" class="headerlink" title="计算分布的模式"></a>计算分布的模式</h3><h3 id="排序层次结构"><a href="#排序层次结构" class="headerlink" title="排序层次结构"></a>排序层次结构</h3><h3 id="数据透视"><a href="#数据透视" class="headerlink" title="数据透视"></a>数据透视</h3><h3 id="计算时效性"><a href="#计算时效性" class="headerlink" title="计算时效性"></a>计算时效性</h3><h2 id="窗口函数优化"><a href="#窗口函数优化" class="headerlink" title="窗口函数优化"></a>窗口函数优化</h2><h2 id="基于窗口函数的解决方案"><a href="#基于窗口函数的解决方案" class="headerlink" title="基于窗口函数的解决方案"></a>基于窗口函数的解决方案</h2><h2 id="所用数据源"><a href="#所用数据源" class="headerlink" title="所用数据源"></a>所用数据源</h2></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Black_Jack</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://foryl.github.io/blog/2018/04/12/Window-Functions-OVER-子句/">https://foryl.github.io/blog/2018/04/12/Window-Functions-OVER-子句/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/blog/tags/SQL/">SQL</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/blog/2018/04/12/常用SQL命令/"><i class="fa fa-chevron-left">  </i><span>常用SQL命令</span></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2018 By Black_Jack</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="/blog/js/third-party/anime.min.js"></script><script src="/blog/js/third-party/jquery.min.js"></script><script src="/blog/js/third-party/jquery.fancybox.min.js"></script><script src="/blog/js/third-party/velocity.min.js"></script><script src="/blog/js/third-party/velocity.ui.min.js"></script><script src="/blog/js/utils.js?version=1.5.3"></script><script src="/blog/js/fancybox.js?version=1.5.3"></script><script src="/blog/js/sidebar.js?version=1.5.3"></script><script src="/blog/js/copy.js?version=1.5.3"></script><script src="/blog/js/fireworks.js?version=1.5.3"></script><script src="/blog/js/transition.js?version=1.5.3"></script><script src="/blog/js/scroll.js?version=1.5.3"></script><script src="/blog/js/head.js?version=1.5.3"></script></body></html>
